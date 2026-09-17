@@ -20,15 +20,15 @@ El blog (`terkor.blogspot.com`) sigue existiendo en Blogger de forma independien
 2. Mantener ambos activos y enlazados, tal como está ahora (la web nueva no depende del Blogger para funcionar).
 
 ## Redirecciones 301
-El dominio original solo tenía dos páginas (`index.html`, `platos.html`) más el Blogger externo. Al pasar a las URL nuevas:
+El dominio original solo tenía dos páginas (`index.html`, `platos.html`) más el Blogger externo. Al pasar a las URL nuevas (limpias, sin `.html`):
 
 | URL antigua | URL nueva |
 |---|---|
-| `/index.html` (secciones por ancla: empresa, servicios, nutrición, contacto) | `/index.html`, `/la-empresa.html`, `/servicios.html`, `/nutricion-innovacion.html`, `/contacto.html` |
-| `/platos.html` | `/platos.html` |
-| `terkor.blogspot.com/*` (10 entradas) | `/blog.html` + `/post-<slug>.html` |
+| `/index.html` (secciones por ancla: empresa, servicios, nutrición, contacto) | `/`, `/la-empresa/`, `/servicios/`, `/nutricion-innovacion/`, `/contacto/` |
+| `/platos.html` | `/platos/` |
+| `terkor.blogspot.com/*` (10 entradas) | `/blog/` + `/post-<slug>/` |
 
-Configurar en el hosting final un 301 de `/platos.html` (mismo nombre, sin cambios) y, si se decide, de las URL del Blogger a sus páginas equivalentes.
+Configurar en el hosting final un 301 de `/platos.html` a `/platos/` y, si se decide, de las URL del Blogger a sus páginas equivalentes.
 
 ## Pendiente técnico
 - Sustituir en `aviso-legal.html` los campos marcados como pendientes en cuanto Terkor confirme sus datos fiscales.

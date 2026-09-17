@@ -54,7 +54,7 @@ function render() {
     lead: "Cuéntenos las particularidades de su centro y adaptamos el servicio a sus necesidades.",
     ctas: [
       { href: SITE.phoneHref, label: `Llamar · ${SITE.phone}`, icon: "phone" },
-      { href: "servicios.html", label: "Ver servicios", variant: "ghost" },
+      { href: "/servicios/", label: "Ver servicios", variant: "ghost" },
     ],
   })}
   `;
@@ -63,10 +63,10 @@ function render() {
 module.exports = {
   render,
   meta: {
-    current: "la-empresa.html",
+    current: "/la-empresa/",
     title: "La empresa — Terkor",
     description:
       "Terkor: 35 años de experiencia gestionando comedores para centros escolares, residencias y empresas de Madrid con eficacia, calidad y seguridad alimentaria.",
-    canonical: "la-empresa.html",
+    canonical: "/la-empresa/",
   },
 };

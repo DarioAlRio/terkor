@@ -38,7 +38,7 @@ function render() {
       const excerptBlock = post.blocks.find((b) => b.type === "p");
       const excerpt = excerptBlock ? excerptBlock.html.replace(/<[^>]+>/g, "").slice(0, 140) + "…" : "";
       return `<li class="post-card">
-        <a href="post-${post.slug}.html" class="post-card__link">
+        <a href="/post-${post.slug}/" class="post-card__link">
           ${firstImg ? picture({ src: `blog/${firstImg.local.replace(/\.[a-z]+$/i, "")}`, alt: firstImg.alt || post.title, cls: "post-card__media" }) : ""}
           <div class="post-card__body">
             <p class="post-card__date">${icon("calendar", { size: 14 })}<time datetime="${post.date}">${formatDate(post.date)}</time></p>
@@ -57,7 +57,7 @@ function render() {
     lead: SITE.description,
     ctas: [
       { href: SITE.phoneHref, label: `Llamar · ${SITE.phone}`, icon: "phone" },
-      { href: "platos.html", label: "Ver nuestros platos", variant: "ghost" },
+      { href: "/platos/", label: "Ver nuestros platos", variant: "ghost" },
     ],
   })}
 
@@ -66,7 +66,7 @@ function render() {
       ${eyebrow("La empresa")}
       <div class="split-heading">
         <h2 class="section__title">Un compromiso con cada centro que confía en nosotros</h2>
-        <a href="la-empresa.html" class="link-more">Conoce Terkor ${icon("arrowRight", { size: 16 })}</a>
+        <a href="/la-empresa/" class="link-more">Conoce Terkor ${icon("arrowRight", { size: 16 })}</a>
       </div>
       <ul class="pillars">${pillars}</ul>
     </div>
@@ -78,7 +78,7 @@ function render() {
         ${eyebrow("Servicios")}
         <h2 class="section__title">Más allá del menú del día</h2>
         <p class="section__lead">Cubrimos todo lo que un centro necesita alrededor del comedor: personal, prevención, eventos y el mantenimiento de la propia cocina.</p>
-        <a href="servicios.html" class="link-more">Ver todos los servicios ${icon("arrowRight", { size: 16 })}</a>
+        <a href="/servicios/" class="link-more">Ver todos los servicios ${icon("arrowRight", { size: 16 })}</a>
       </div>
       <ul class="mini-services">${servicios}</ul>
     </div>
@@ -91,7 +91,7 @@ function render() {
           ${eyebrow("Nutrición e innovación")}
           <h2 class="section__title">Dieta mediterránea, supervisada mes a mes</h2>
         </div>
-        <a href="nutricion-innovacion.html" class="link-more">Cómo diseñamos los menús ${icon("arrowRight", { size: 16 })}</a>
+        <a href="/nutricion-innovacion/" class="link-more">Cómo diseñamos los menús ${icon("arrowRight", { size: 16 })}</a>
       </div>
       <div class="nutri-teaser">
         ${picture({ src: "nutricion-aceite", alt: "Aceite de oliva virgen extra sobre una ensalada", cls: "nutri-teaser__img" })}
@@ -108,7 +108,7 @@ function render() {
           ${eyebrow("Platos")}
           <h2 class="section__title">Lo que comen cada día en nuestros centros</h2>
         </div>
-        <a href="platos.html" class="link-more">Ver la galería completa ${icon("arrowRight", { size: 16 })}</a>
+        <a href="/platos/" class="link-more">Ver la galería completa ${icon("arrowRight", { size: 16 })}</a>
       </div>
       <ul class="platos-strip">${platosSample}</ul>
     </div>
@@ -121,7 +121,7 @@ function render() {
           ${eyebrow("Blog")}
           <h2 class="section__title">Nutrición, temporada y vida escolar</h2>
         </div>
-        <a href="blog.html" class="link-more">Ver todas las entradas ${icon("arrowRight", { size: 16 })}</a>
+        <a href="/blog/" class="link-more">Ver todas las entradas ${icon("arrowRight", { size: 16 })}</a>
       </div>
       <ul class="post-grid">${posts}</ul>
     </div>
@@ -132,7 +132,7 @@ function render() {
     lead: "Cuéntanos tus necesidades de comedor y te preparamos una propuesta.",
     ctas: [
       { href: SITE.phoneHref, label: `Llamar · ${SITE.phone}`, icon: "phone" },
-      { href: "contacto.html", label: "Ir a contacto", variant: "ghost" },
+      { href: "/contacto/", label: "Ir a contacto", variant: "ghost" },
     ],
   })}
   `;
@@ -146,9 +146,9 @@ function formatDate(iso) {
 module.exports = {
   render,
   meta: {
-    current: "index.html",
+    current: "/",
     title: "Terkor — Servicios de cocina y comedor en Madrid",
     description: SITE.description,
-    canonical: "index.html",
+    canonical: "/",
   },
 };

@@ -8,33 +8,33 @@ function picture({ src, alt, cls = "", sizes = "", widthAttr, heightAttr, loadin
   const fp = fetchpriority ? ` fetchpriority="${fetchpriority}"` : "";
   const sz = sizes ? ` sizes="${sizes}"` : "";
   return `<picture class="${cls}">
-    <source srcset="assets/img/${src}.webp" type="image/webp"${sz}>
-    <img src="assets/img/${src}.jpg" alt="${alt}"${w}${h} loading="${loading}" decoding="async"${fp}>
+    <source srcset="/assets/img/${src}.webp" type="image/webp"${sz}>
+    <img src="/assets/img/${src}.jpg" alt="${alt}"${w}${h} loading="${loading}" decoding="async"${fp}>
   </picture>`;
 }
 
-function head({ title, description, canonical, ogImage = "assets/img/hero-mercado.jpg", jsonLd = [] }) {
+function head({ title, description, canonical, ogImage = "/assets/img/hero-mercado.jpg", jsonLd = [] }) {
   const ld = jsonLd.map((obj) => `<script type="application/ld+json">${JSON.stringify(obj)}</script>`).join("\n");
   return `<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${title}</title>
   <meta name="description" content="${description}">
-  <link rel="canonical" href="${SITE.domain}/${canonical}">
-  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="${SITE.domain}${canonical}">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#dc2b6e">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Terkor">
   <meta property="og:title" content="${title}">
   <meta property="og:description" content="${description}">
-  <meta property="og:image" content="${SITE.domain}/${ogImage}">
-  <meta property="og:url" content="${SITE.domain}/${canonical}">
+  <meta property="og:image" content="${SITE.domain}${ogImage}">
+  <meta property="og:url" content="${SITE.domain}${canonical}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${title}">
   <meta name="twitter:description" content="${description}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600;700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
   <script>document.documentElement.className += ' js';</script>
   ${ld}`;
 }
@@ -47,7 +47,7 @@ function header(current) {
   return `<a class="skip-link" href="#contenido">Saltar al contenido</a>
   <header class="site-header" id="site-header">
     <div class="site-header__bar container">
-      <a href="index.html" class="brand-link" aria-label="Terkor — inicio">${brandmark()}</a>
+      <a href="/" class="brand-link" aria-label="Terkor — inicio">${brandmark()}</a>
       <nav class="nav nav--desktop" aria-label="Principal">
         <ul class="nav__list">${items}</ul>
       </nav>
@@ -79,7 +79,7 @@ function mobileBar() {
   return `<div class="mobile-cta-bar" aria-label="Contacto rápido">
     <a href="${SITE.phoneHref}" class="mobile-cta-bar__item">${icon("phone", { size: 20 })}<span>Llamar</span></a>
     <a href="${SITE.whatsappHref}" class="mobile-cta-bar__item">${icon("whatsapp", { size: 20 })}<span>WhatsApp</span></a>
-    <a href="contacto.html" class="mobile-cta-bar__item mobile-cta-bar__item--accent">${icon("mail", { size: 20 })}<span>Contacto</span></a>
+    <a href="/contacto/" class="mobile-cta-bar__item mobile-cta-bar__item--accent">${icon("mail", { size: 20 })}<span>Contacto</span></a>
   </div>`;
 }
 
@@ -95,8 +95,8 @@ function footer() {
   return `<footer class="site-footer">
     <div class="site-footer__band">
       <picture>
-        <source srcset="assets/img/footer-verduras.webp" type="image/webp">
-        <img src="assets/img/footer-verduras.jpg" alt="" loading="lazy" decoding="async">
+        <source srcset="/assets/img/footer-verduras.webp" type="image/webp">
+        <img src="/assets/img/footer-verduras.jpg" alt="" loading="lazy" decoding="async">
       </picture>
       <div class="site-footer__band-fade" aria-hidden="true"></div>
     </div>
@@ -123,8 +123,8 @@ function footer() {
 function hero({ eyebrowText, title, lead, ctas = [], image = "hero-mercado", compact = false }) {
   return `<section class="hero ${compact ? "hero--compact" : ""}">
     <picture class="hero__media">
-      <source srcset="assets/img/${image}.webp" type="image/webp">
-      <img src="assets/img/${image}.jpg" alt="" loading="eager" decoding="async" fetchpriority="high">
+      <source srcset="/assets/img/${image}.webp" type="image/webp">
+      <img src="/assets/img/${image}.jpg" alt="" loading="eager" decoding="async" fetchpriority="high">
     </picture>
     <div class="hero__scrim" aria-hidden="true"></div>
     <div class="container hero__content">
@@ -178,7 +178,7 @@ ${header(current)}
 ${content}
 </main>
 ${footer()}
-<script src="assets/js/site.js"></script>
+<script src="/assets/js/site.js"></script>
 </body>
 </html>
 `;

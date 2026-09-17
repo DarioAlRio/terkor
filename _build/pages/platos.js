@@ -40,7 +40,7 @@ function render() {
     lead: "Se lo enviamos junto con la propuesta nutricional de su centro.",
     ctas: [
       { href: SITE.phoneHref, label: `Llamar · ${SITE.phone}`, icon: "phone" },
-      { href: "contacto.html", label: "Pedir información", variant: "ghost" },
+      { href: "/contacto/", label: "Pedir información", variant: "ghost" },
     ],
   })}
 
@@ -59,9 +59,9 @@ function render() {
 module.exports = {
   render,
   meta: {
-    current: "platos.html",
+    current: "/platos/",
     title: "Platos — Terkor",
     description: "Galería real de los menús que Terkor sirve cada día en comedores escolares, residencias y empresas de Madrid.",
-    canonical: "platos.html",
+    canonical: "/platos/",
   },
 };

@@ -80,9 +80,9 @@ function render() {
 module.exports = {
   render,
   meta: {
-    current: "contacto.html",
+    current: "/contacto/",
     title: "Contacto — Terkor",
     description: `Contacte con Terkor: ${SITE.phone}, WhatsApp o correo electrónico. Servicios de cocina y comedor en ${SITE.locality}.`,
-    canonical: "contacto.html",
+    canonical: "/contacto/",
   },
 };

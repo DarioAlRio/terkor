@@ -22,13 +22,13 @@ const SITE = {
 };
 
 const NAV = [
-  { href: "index.html", label: "Inicio" },
-  { href: "la-empresa.html", label: "La empresa" },
-  { href: "servicios.html", label: "Servicios" },
-  { href: "nutricion-innovacion.html", label: "Nutrición e innovación" },
-  { href: "platos.html", label: "Platos" },
-  { href: "blog.html", label: "Blog" },
-  { href: "contacto.html", label: "Contacto" },
+  { href: "/", label: "Inicio" },
+  { href: "/la-empresa/", label: "La empresa" },
+  { href: "/servicios/", label: "Servicios" },
+  { href: "/nutricion-innovacion/", label: "Nutrición e innovación" },
+  { href: "/platos/", label: "Platos" },
+  { href: "/blog/", label: "Blog" },
+  { href: "/contacto/", label: "Contacto" },
 ];
 
 const FOOT = {
@@ -36,21 +36,21 @@ const FOOT = {
     {
       title: "Terkor",
       links: [
-        { href: "la-empresa.html", label: "La empresa" },
-        { href: "servicios.html", label: "Servicios" },
-        { href: "nutricion-innovacion.html", label: "Nutrición e innovación" },
+        { href: "/la-empresa/", label: "La empresa" },
+        { href: "/servicios/", label: "Servicios" },
+        { href: "/nutricion-innovacion/", label: "Nutrición e innovación" },
       ],
     },
     {
       title: "Contenido",
       links: [
-        { href: "platos.html", label: "Platos" },
-        { href: "blog.html", label: "Blog de nutrición" },
-        { href: "contacto.html", label: "Contacto" },
+        { href: "/platos/", label: "Platos" },
+        { href: "/blog/", label: "Blog de nutrición" },
+        { href: "/contacto/", label: "Contacto" },
       ],
     },
   ],
-  legal: [{ href: "aviso-legal.html", label: "Aviso legal y privacidad" }],
+  legal: [{ href: "/aviso-legal/", label: "Aviso legal y privacidad" }],
 };
 
 module.exports = { SITE, NAV, FOOT };

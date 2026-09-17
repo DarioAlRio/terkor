@@ -10,7 +10,7 @@ function render() {
       <h1 class="section__title">Esta página no existe</h1>
       <p class="section__lead">Puede que el enlace esté anticuado. Pruebe desde el inicio o llámenos si buscaba algo en concreto.</p>
       <div class="hero__ctas">
-        <a href="index.html" class="btn btn--primary">${icon("arrowRight", { size: 18 })}<span>Ir al inicio</span></a>
+        <a href="/" class="btn btn--primary">${icon("arrowRight", { size: 18 })}<span>Ir al inicio</span></a>
         <a href="${SITE.phoneHref}" class="btn btn--ghost">${icon("phone", { size: 18 })}<span>${SITE.phone}</span></a>
       </div>
     </div>
@@ -21,9 +21,9 @@ function render() {
 module.exports = {
   render,
   meta: {
-    current: "404.html",
+    current: "/404.html",
     title: "Página no encontrada — Terkor",
     description: "La página solicitada no existe.",
-    canonical: "404.html",
+    canonical: "/404.html",
   },
 };

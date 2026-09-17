@@ -22,24 +22,28 @@ const TYPES = {
 
 http
   .createServer((req, res) => {
-    let urlPath = decodeURIComponent(req.url.split("?")[0]);
-    if (urlPath === "/") urlPath = "/index.html";
+    const urlPath = decodeURIComponent(req.url.split("?")[0]);
     let filePath = path.join(ROOT, urlPath);
     if (!filePath.startsWith(ROOT)) {
       res.writeHead(403);
       return res.end("Forbidden");
     }
-    fs.readFile(filePath, (err, data) => {
-      if (err) {
-        fs.readFile(path.join(ROOT, "404.html"), (err2, data2) => {
-          res.writeHead(404, { "Content-Type": "text/html; charset=utf-8" });
-          res.end(err2 ? "404" : data2);
-        });
-        return;
-      }
-      const ext = path.extname(filePath);
-      res.writeHead(200, { "Content-Type": TYPES[ext] || "application/octet-stream" });
-      res.end(data);
+    fs.stat(filePath, (statErr, stat) => {
+      // URL limpia sin barra final ("/contacto") o con ella ("/contacto/"): ambas sirven
+      // el index.html de esa carpeta, igual que hacen GitHub Pages, Netlify y Apache.
+      if (!statErr && stat.isDirectory()) filePath = path.join(filePath, "index.html");
+      fs.readFile(filePath, (err, data) => {
+        if (err) {
+          fs.readFile(path.join(ROOT, "404.html"), (err2, data2) => {
+            res.writeHead(404, { "Content-Type": "text/html; charset=utf-8" });
+            res.end(err2 ? "404" : data2);
+          });
+          return;
+        }
+        const ext = path.extname(filePath);
+        res.writeHead(200, { "Content-Type": TYPES[ext] || "application/octet-stream" });
+        res.end(data);
+      });
     });
   })
   .listen(PORT, () => console.log(`Terkor local: http://localhost:${PORT}`));

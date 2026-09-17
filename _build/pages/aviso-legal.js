@@ -41,9 +41,9 @@ function render() {
 module.exports = {
   render,
   meta: {
-    current: "aviso-legal.html",
+    current: "/aviso-legal/",
     title: "Aviso legal y privacidad — Terkor",
     description: "Información legal de Terkor: identificación del titular, tratamiento del formulario de contacto y política de cookies.",
-    canonical: "aviso-legal.html",
+    canonical: "/aviso-legal/",
   },
 };

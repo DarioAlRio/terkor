@@ -52,7 +52,7 @@ function render() {
     lead: "Adaptamos los menús a requisitos concretos: cuéntenos el caso.",
     ctas: [
       { href: SITE.phoneHref, label: `Llamar · ${SITE.phone}`, icon: "phone" },
-      { href: "blog.html", label: "Leer el blog de nutrición", variant: "ghost" },
+      { href: "/blog/", label: "Leer el blog de nutrición", variant: "ghost" },
     ],
   })}
   `;
@@ -61,10 +61,10 @@ function render() {
 module.exports = {
   render,
   meta: {
-    current: "nutricion-innovacion.html",
+    current: "/nutricion-innovacion/",
     title: "Nutrición e innovación — Terkor",
     description:
       "Menús mensuales supervisados por estudios nutricionales de BIOTAB, dieta mediterránea estacional y adaptación a necesidades dietéticas especiales.",
-    canonical: "nutricion-innovacion.html",
+    canonical: "/nutricion-innovacion/",
   },
 };

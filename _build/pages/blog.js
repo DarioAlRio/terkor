@@ -43,7 +43,7 @@ function renderIndex() {
   const cards = BLOG_POSTS.map((post) => {
     const firstImg = post.blocks.find((b) => b.type === "img");
     return `<li class="post-card">
-      <a href="post-${post.slug}.html" class="post-card__link">
+      <a href="/post-${post.slug}/" class="post-card__link">
         ${firstImg ? picture({ src: `blog/${firstImg.local.replace(/\.[a-z]+$/i, "")}`, alt: firstImg.alt || post.title, cls: "post-card__media" }) : ""}
         <div class="post-card__body">
           <p class="post-card__date">${icon("calendar", { size: 14 })}<time datetime="${post.date}">${formatDate(post.date)}</time><span class="post-card__label">${labelFor(post)}</span></p>
@@ -70,7 +70,7 @@ function renderIndex() {
     lead: "Nuestro equipo de nutrición le atiende directamente.",
     ctas: [
       { href: SITE.phoneHref, label: `Llamar · ${SITE.phone}`, icon: "phone" },
-      { href: "nutricion-innovacion.html", label: "Cómo diseñamos los menús", variant: "ghost" },
+      { href: "/nutricion-innovacion/", label: "Cómo diseñamos los menús", variant: "ghost" },
     ],
   })}
   `;
@@ -80,7 +80,7 @@ function renderPost(post, { prev, next }) {
   const related = BLOG_POSTS.filter((p) => p.slug !== post.slug).slice(0, 3);
   const relatedHtml = related
     .map(
-      (r) => `<li><a href="post-${r.slug}.html">${r.title}</a></li>`
+      (r) => `<li><a href="/post-${r.slug}/">${r.title}</a></li>`
     )
     .join("\n");
 
@@ -97,8 +97,8 @@ function renderPost(post, { prev, next }) {
       ${renderBlocks(post.blocks)}
     </div>
     <nav class="post-pager container" aria-label="Más entradas">
-      ${prev ? `<a href="post-${prev.slug}.html" class="post-pager__link post-pager__link--prev">${icon("chevronLeft", { size: 16 })}<span>${prev.title}</span></a>` : "<span></span>"}
-      ${next ? `<a href="post-${next.slug}.html" class="post-pager__link post-pager__link--next"><span>${next.title}</span>${icon("chevronRight", { size: 16 })}</a>` : "<span></span>"}
+      ${prev ? `<a href="/post-${prev.slug}/" class="post-pager__link post-pager__link--prev">${icon("chevronLeft", { size: 16 })}<span>${prev.title}</span></a>` : "<span></span>"}
+      ${next ? `<a href="/post-${next.slug}/" class="post-pager__link post-pager__link--next"><span>${next.title}</span>${icon("chevronRight", { size: 16 })}</a>` : "<span></span>"}
     </nav>
     <aside class="container post-related">
       <h2 class="section__title section__title--sm">También te puede interesar</h2>
@@ -112,13 +112,13 @@ function allPosts() {
   return BLOG_POSTS.map((post, i) => ({
     render: () => renderPost(post, { prev: BLOG_POSTS[i - 1], next: BLOG_POSTS[i + 1] }),
     meta: {
-      current: `post-${post.slug}.html`,
+      current: `/post-${post.slug}/`,
       title: `${post.title} — Blog Terkor`,
       description: excerptOf(post),
-      canonical: `post-${post.slug}.html`,
+      canonical: `/post-${post.slug}/`,
       ogImage: (() => {
         const img = post.blocks.find((b) => b.type === "img");
-        return img ? `assets/img/blog/${img.local.replace(/\.[a-z]+$/i, "")}.jpg` : undefined;
+        return img ? `/assets/img/blog/${img.local.replace(/\.[a-z]+$/i, "")}.jpg` : undefined;
       })(),
     },
   }));
@@ -127,10 +127,10 @@ function allPosts() {
 module.exports = {
   render: renderIndex,
   meta: {
-    current: "blog.html",
+    current: "/blog/",
     title: "Blog — Terkor",
     description: "Artículos de Terkor sobre nutrición infantil, alimentación de temporada y vida escolar.",
-    canonical: "blog.html",
+    canonical: "/blog/",
   },
   allPosts,
 };
