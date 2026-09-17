@@ -81,7 +81,7 @@
     });
   });
 
-  /* ---------- Formulario de contacto: compone mailto / WhatsApp, no envía nada ---------- */
+  /* ---------- Formulario de contacto: compone un mailto, no envía nada ---------- */
   ready(function () {
     var form = document.getElementById("contact-form");
     if (!form) return;
@@ -122,16 +122,6 @@
         status.textContent = "Se ha abierto tu programa de correo con el mensaje listo para enviar.";
       }
     });
-
-    var waBtn = form.querySelector("[data-whatsapp-fill]");
-    if (waBtn) {
-      waBtn.addEventListener("click", function () {
-        if (isSpam()) return;
-        var msg = buildMessage();
-        var text = msg.subject + "\n\n" + msg.body;
-        window.open("https://wa.me/34650971404?text=" + encodeURIComponent(text), "_blank", "noopener");
-      });
-    }
   });
 
   /* ---------- Galería de platos: lightbox accesible ---------- */

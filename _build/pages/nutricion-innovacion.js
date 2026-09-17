@@ -51,7 +51,7 @@ function render() {
     title: "¿Tiene alumnos o residentes con necesidades dietéticas especiales?",
     lead: "Adaptamos los menús a requisitos concretos: cuéntenos el caso.",
     ctas: [
-      { href: SITE.phoneHref, label: `Llamar · ${SITE.phone}`, icon: "phone" },
+      { href: "/contacto/", label: "Contactar", icon: "mail" },
       { href: "/blog/", label: "Leer el blog de nutrición", variant: "ghost" },
     ],
   })}

@@ -69,7 +69,7 @@ function renderIndex() {
     title: "¿Alguna duda sobre los menús de su centro?",
     lead: "Nuestro equipo de nutrición le atiende directamente.",
     ctas: [
-      { href: SITE.phoneHref, label: `Llamar · ${SITE.phone}`, icon: "phone" },
+      { href: "/contacto/", label: "Contactar", icon: "mail" },
       { href: "/nutricion-innovacion/", label: "Cómo diseñamos los menús", variant: "ghost" },
     ],
   })}

@@ -1,5 +1,4 @@
 "use strict";
-const { SITE } = require("../nav.js");
 const { icon } = require("../lib.js");
 
 function render() {
@@ -8,10 +7,10 @@ function render() {
     <div class="container notfound__inner">
       <p class="notfound__code">404</p>
       <h1 class="section__title">Esta página no existe</h1>
-      <p class="section__lead">Puede que el enlace esté anticuado. Pruebe desde el inicio o llámenos si buscaba algo en concreto.</p>
+      <p class="section__lead">Puede que el enlace esté anticuado. Pruebe desde el inicio o escríbanos si buscaba algo en concreto.</p>
       <div class="hero__ctas">
         <a href="/" class="btn btn--primary">${icon("arrowRight", { size: 18 })}<span>Ir al inicio</span></a>
-        <a href="${SITE.phoneHref}" class="btn btn--ghost">${icon("phone", { size: 18 })}<span>${SITE.phone}</span></a>
+        <a href="/contacto/" class="btn btn--ghost">${icon("mail", { size: 18 })}<span>Contactar</span></a>
       </div>
     </div>
   </section>

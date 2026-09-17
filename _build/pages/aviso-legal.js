@@ -18,7 +18,6 @@ function render() {
         <li><strong>Actividad:</strong> Servicios de cocina y comedor para centros escolares, residencias y empresas.</li>
         <li><strong>Localidad:</strong> ${SITE.locality}, ${SITE.region}</li>
         <li><strong>Correo electrónico:</strong> ${SITE.email}</li>
-        <li><strong>Teléfono:</strong> ${SITE.phone}</li>
         <li><strong>CIF / NIF, razón social completa y domicilio social:</strong> <em>pendientes de confirmar por el titular — ver PENDIENTE.md</em></li>
       </ul>
 
@@ -26,7 +25,7 @@ function render() {
       <p>Este sitio web tiene carácter informativo: presenta la actividad de Terkor, sus servicios y sus menús. No procesa pagos ni almacena datos de usuarios en un servidor propio.</p>
 
       <h2>Formulario de contacto</h2>
-      <p>El formulario de la página de contacto no envía datos a ningún servidor: compone un correo electrónico o un mensaje de WhatsApp que el propio visitante decide enviar desde su programa de correo o su aplicación de mensajería. Terkor solo recibe los datos que la persona decide finalmente enviar por esa vía.</p>
+      <p>El formulario de la página de contacto no envía datos a ningún servidor: compone un correo electrónico que el propio visitante decide enviar desde su programa de correo. Terkor solo recibe los datos que la persona decide finalmente enviar por esa vía.</p>
 
       <h2>Cookies</h2>
       <p>Esta versión del sitio no utiliza cookies propias de seguimiento ni de terceros. Si en el futuro se incorpora algún servicio que sí las use (mapas, vídeo, analítica), se avisará en esta misma página y se pedirá el consentimiento correspondiente.</p>
