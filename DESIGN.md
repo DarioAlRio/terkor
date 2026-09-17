@@ -28,6 +28,7 @@
 - **Bento de nutrición**: las dos fotos (`foto_nutricion.jpg`) se separan por recorte en `aceite` y `pan` para poder maquetarlas como bloque bento con una cita destacada, en vez de una única imagen compuesta como en el original.
 - **Galería + lightbox** (`.gallery`, `#lightbox`): sustituye a la tabla HTML de `platos.html`. Foco atrapado, cierre con `Escape`, navegación con flechas de teclado, el foco vuelve al botón que abrió la imagen.
 - **Tarjeta de entrada de blog** (`.post-card`) y **ficha de entrada** (`.post`, `.post-figure`, `.post-quote`): el `.post-quote` usa fondo suave + icono de comillas, **no** un borde grueso de color a la izquierda (patrón de cita típico de interfaces generadas por IA, detectado y corregido con `impeccable/scripts/detect.mjs`).
+- **Pie** (`.site-footer`), **banda CTA** (`.cta-band`) y **cita de nutrición** (`.nutri-teaser__quote`): fondo oscuro fijo (`--surface-dark`), que no se invierte con el modo oscuro del sistema (si lo hiciera, el fondo pasaría a casi blanco con letras blancas encima e ilegibles). Texto en blanco; los enlaces del pie pasan al rosa de marca (`--pink-on-dark`) solo en `:hover`.
 - **Formulario de contacto**: sin backend. Compone un `mailto:` o un enlace de WhatsApp (`wa.me`) con los datos escritos; nunca simula un envío que no ocurre. Incluye trampa antispam oculta (`.field--trap`).
 
 ## Movimiento

@@ -417,26 +417,23 @@ body { padding-bottom: 64px; }
 .cta-band__ctas { display: flex; gap: 0.85rem; flex-wrap: wrap; }
 
 /* ---------- Pie ---------- */
-/* Texto en el rosa de marca (--pink-on-dark, 7,5:1 sobre el fondo) en vez del blanco
-   habitual: es la única sección donde el rosa se usa como color de texto general, a
-   petición expresa — el resto del sitio sigue usando --pink solo en acentos. */
-.site-footer { background: var(--surface-dark); color: var(--pink-on-dark); position: relative; }
+.site-footer { background: var(--surface-dark); color: #fff; position: relative; }
 .site-footer__band { position: relative; height: 120px; overflow: hidden; }
 .site-footer__band img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.9); }
 .site-footer__band-fade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(32,26,29,0.15), var(--surface-dark)); }
 .footer__grid { display: grid; gap: 2.5rem; grid-template-columns: 1fr; padding-block: clamp(2rem, 5vw, 3rem); }
-.footer__claim { color: var(--pink-on-dark); opacity: 0.85; max-width: 32ch; }
+.footer__claim { color: rgba(255,255,255,0.85); max-width: 32ch; }
 .footer__contact { display: grid; gap: 0.6rem; margin-top: 1rem; }
-.footer__contact li, .footer__contact a { display: flex; align-items: center; gap: 0.55rem; color: var(--pink-on-dark); text-decoration: none; }
-.footer__contact a:hover { color: #fff; }
-.footer__heading { color: var(--pink-on-dark); font-size: 1rem; margin-bottom: 0.85rem; }
+.footer__contact li, .footer__contact a { display: flex; align-items: center; gap: 0.55rem; color: #fff; text-decoration: none; }
+.footer__contact a:hover { color: var(--pink-on-dark); }
+.footer__heading { color: #fff; font-size: 1rem; margin-bottom: 0.85rem; }
 .footer__list { display: grid; gap: 0.55rem; }
-.footer__list a { color: var(--pink-on-dark); opacity: 0.9; text-decoration: none; }
-.footer__list a:hover { color: #fff; opacity: 1; }
-.footer__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding-block: 1.25rem 2rem; border-top: 1px solid rgba(255,135,172,0.25); font-size: 0.85rem; color: var(--pink-on-dark); opacity: 0.8; }
+.footer__list a { color: rgba(255,255,255,0.9); text-decoration: none; }
+.footer__list a:hover { color: var(--pink-on-dark); opacity: 1; }
+.footer__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding-block: 1.25rem 2rem; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.85rem; color: rgba(255,255,255,0.8); }
 .footer__legal { display: flex; gap: 1rem; }
-.footer__legal a { color: var(--pink-on-dark); opacity: 0.8; }
-.footer__legal a:hover { color: #fff; opacity: 1; }
+.footer__legal a { color: rgba(255,255,255,0.8); }
+.footer__legal a:hover { color: var(--pink-on-dark); opacity: 1; }
 @media (min-width: 720px) { .footer__grid { grid-template-columns: 1.3fr 1fr 1fr; } }
 
 /* ---------- 404 ---------- */
