@@ -47,6 +47,14 @@ const jsonLdByPage = {
 
 const allPages = [...staticPages, ...postPages];
 
+// Convierte una ruta limpia ("/", "/contacto/", "/post-x/") en la ruta de archivo real
+// en disco ("index.html", "contacto/index.html", "post-x/index.html").
+function fileForPath(urlPath) {
+  if (urlPath === "/") return "index.html";
+  const slug = urlPath.replace(/^\/|\/$/g, "");
+  return path.posix.join(slug, "index.html");
+}
+
 function buildPage(pageDef) {
   const { meta, render } = pageDef;
   const html = shell({
@@ -58,13 +66,16 @@ function buildPage(pageDef) {
     jsonLd: jsonLdByPage[meta.canonical] || [],
     content: render(),
   });
-  fs.writeFileSync(path.join(ROOT, meta.current), html, "utf8");
-  return meta.current;
+  const file = fileForPath(meta.canonical);
+  fs.mkdirSync(path.join(ROOT, path.dirname(file)), { recursive: true });
+  fs.writeFileSync(path.join(ROOT, file), html, "utf8");
+  return { path: meta.canonical, file };
 }
 
 const written = allPages.map(buildPage);
 
-// 404
+// 404: se sirve como archivo literal en la raíz (lo esperan GitHub Pages, Netlify, Apache…),
+// no como carpeta con URL limpia.
 const notFound = require("./_build/pages/404.js");
 fs.writeFileSync(
   path.join(ROOT, "404.html"),
@@ -77,21 +88,21 @@ fs.writeFileSync(
   }),
   "utf8"
 );
-written.push("404.html");
+written.push({ path: notFound.meta.canonical, file: "404.html" });
 
 // sitemap.xml
-const priority = (file) => {
-  if (file === "index.html") return "1.0";
-  if (file.startsWith("post-")) return "0.5";
-  if (file === "aviso-legal.html") return "0.3";
+const priority = (p) => {
+  if (p.path === "/") return "1.0";
+  if (p.path.startsWith("/post-")) return "0.5";
+  if (p.path === "/aviso-legal/") return "0.3";
   return "0.8";
 };
 const sitemapEntries = written
-  .filter((f) => f !== "404.html")
+  .filter((p) => p.file !== "404.html")
   .map(
-    (f) => `  <url>
-    <loc>${SITE.domain}/${f}</loc>
-    <priority>${priority(f)}</priority>
+    (p) => `  <url>
+    <loc>${SITE.domain}${p.path}</loc>
+    <priority>${priority(p)}</priority>
   </url>`
   )
   .join("\n");
@@ -110,32 +121,32 @@ fs.writeFileSync(
 
 // ---- Verificación: enlaces internos e imágenes referenciadas deben existir ----
 let errors = [];
-const knownFiles = new Set(written.concat(["sitemap.xml", "robots.txt"]));
+const knownPaths = new Set(written.map((p) => p.path));
 
-for (const file of written) {
+for (const { file } of written) {
   const html = fs.readFileSync(path.join(ROOT, file), "utf8");
   // Solo <a href="...">: los <link>/<meta> (CSS, favicon, canonical, og:image) son recursos, no páginas.
   const aHrefRe = /<a\b[^>]*\shref="([^"]+)"/g;
   let m;
   while ((m = aHrefRe.exec(html))) {
     const href = m[1];
-    if (href.startsWith("http") || href.startsWith("mailto:") || href.startsWith("tel:") || href.startsWith("#") || href === "/") continue;
-    if (!knownFiles.has(href)) {
+    if (href.startsWith("http") || href.startsWith("mailto:") || href.startsWith("tel:") || href.startsWith("#")) continue;
+    if (!knownPaths.has(href) && !fs.existsSync(path.join(ROOT, href.replace(/^\//, "")))) {
       errors.push(`${file}: enlace interno roto -> ${href}`);
     }
   }
-  // Cualquier atributo src= (img, script) y los href de <link> a recursos locales (css, favicon).
+  // Cualquier atributo src= (img, script) y los href de <link> a recursos locales (css, favicon), en rutas absolutas ("/assets/...").
   const srcRe = /\ssrc="([^"]+)"/g;
   while ((m = srcRe.exec(html))) {
     const src = m[1];
     if (src.startsWith("http")) continue;
-    if (!fs.existsSync(path.join(ROOT, src))) errors.push(`${file}: imagen o script no encontrado -> ${src}`);
+    if (!fs.existsSync(path.join(ROOT, src.replace(/^\//, "")))) errors.push(`${file}: imagen o script no encontrado -> ${src}`);
   }
   const linkHrefRe = /<link\b[^>]*\shref="([^"]+)"/g;
   while ((m = linkHrefRe.exec(html))) {
     const href = m[1];
     if (href.startsWith("http")) continue;
-    if (!fs.existsSync(path.join(ROOT, href))) errors.push(`${file}: recurso <link> no encontrado -> ${href}`);
+    if (!fs.existsSync(path.join(ROOT, href.replace(/^\//, "")))) errors.push(`${file}: recurso <link> no encontrado -> ${href}`);
   }
 }
 

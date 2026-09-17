@@ -61,28 +61,34 @@ algún enlace interno o alguna imagen referenciada no existe.
 
 ## Páginas generadas
 
-| Página | Contenido |
+Las URL son "limpias" (sin `.html`): cada página vive en su propia carpeta con un
+`index.html` dentro (p. ej. `contacto/index.html` se sirve como `/contacto/`), tal como
+hacen GitHub Pages, Netlify, Vercel y Apache/Nginx con la configuración por defecto — no
+hace falta ninguna regla de reescritura en el servidor. Solo `index.html` (portada) y
+`404.html` (página de error) quedan como archivos sueltos en la raíz.
+
+| URL | Contenido |
 |---|---|
-| `index.html` | Portada: hero, pilares, servicios, nutrición, muestra de platos y blog |
-| `la-empresa.html` | Quiénes son, los tres pilares (Eficacia, Calidad, Seguridad) |
-| `servicios.html` | Los 4 servicios reales (traslado de personal, PRL, eventos, limpieza/maquinaria) |
-| `nutricion-innovacion.html` | Cómo se diseñan los menús (BIOTAB) e innovación |
-| `platos.html` | Galería de 19 platos reales con lightbox accesible |
-| `blog.html` + `post-*.html` (10) | Índice y fichas de las 10 entradas reales del blog |
-| `contacto.html` | Teléfono, WhatsApp, correo y formulario que compone `mailto:`/WhatsApp |
-| `aviso-legal.html` | Aviso legal honesto: qué datos de identificación faltan por confirmar |
-| `404.html` | Página de error |
+| `/` | Portada: hero, pilares, servicios, nutrición, muestra de platos y blog |
+| `/la-empresa/` | Quiénes son, los tres pilares (Eficacia, Calidad, Seguridad) |
+| `/servicios/` | Los 4 servicios reales (traslado de personal, PRL, eventos, limpieza/maquinaria) |
+| `/nutricion-innovacion/` | Cómo se diseñan los menús (BIOTAB) e innovación |
+| `/platos/` | Galería de 19 platos reales con lightbox accesible |
+| `/blog/` + `/post-<slug>/` (10) | Índice y fichas de las 10 entradas reales del blog |
+| `/contacto/` | Teléfono, WhatsApp, correo y formulario que compone `mailto:`/WhatsApp |
+| `/aviso-legal/` | Aviso legal honesto: qué datos de identificación faltan por confirmar |
+| `404.html` | Página de error (archivo suelto en la raíz, lo exigen así los hostings) |
 
 ## De la web antigua a la nueva
 
 | URL / sección antigua | Página nueva |
 |---|---|
-| `index.html` (ancla `#` / "LA EMPRESA") | `index.html`, `la-empresa.html` |
-| `index.html#secc_servicios` | `servicios.html` |
-| `index.html#secc_nutricion` | `nutricion-innovacion.html` |
-| `index.html#secc_contacto` | `contacto.html` |
-| `platos.html` | `platos.html` (mismo nombre) |
-| `terkor.blogspot.com` (10 entradas) | `blog.html` + `post-<slug>.html` |
+| `index.html` (ancla `#` / "LA EMPRESA") | `/`, `/la-empresa/` |
+| `index.html#secc_servicios` | `/servicios/` |
+| `index.html#secc_nutricion` | `/nutricion-innovacion/` |
+| `index.html#secc_contacto` | `/contacto/` |
+| `platos.html` | `/platos/` |
+| `terkor.blogspot.com` (10 entradas) | `/blog/` + `/post-<slug>/` |
 
 El menú original era una sola fila de 6 anclas más un enlace externo al blog; con el
 contenido real repartido en páginas propias, el menú nuevo tiene 7 enlaces directos

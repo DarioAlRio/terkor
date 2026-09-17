@@ -44,7 +44,7 @@ function render() {
     lead: "Le contamos cómo los integramos con el servicio de comedor de su centro.",
     ctas: [
       { href: SITE.phoneHref, label: `Llamar · ${SITE.phone}`, icon: "phone" },
-      { href: "contacto.html", label: "Escribir", variant: "ghost" },
+      { href: "/contacto/", label: "Escribir", variant: "ghost" },
     ],
   })}
   `;
@@ -53,10 +53,10 @@ function render() {
 module.exports = {
   render,
   meta: {
-    current: "servicios.html",
+    current: "/servicios/",
     title: "Servicios — Terkor",
     description:
       "Traslado de personal, prevención de riesgos laborales, eventos especiales y limpieza e instalación de maquinaria de cocina. Servicios de Terkor en Madrid.",
-    canonical: "servicios.html",
+    canonical: "/servicios/",
   },
 };
