@@ -15,9 +15,9 @@ El formulario de `contacto.html` **no tiene backend**: compone un `mailto:` o un
 El sitio original no tenía Google Analytics, Tag Manager, Cookiebot ni ningún pixel instalado — no se ha añadido ninguno en la versión nueva. Si se quiere medir tráfico, decidir la herramienta y actualizar `aviso-legal.html` con el aviso de cookies correspondiente.
 
 ## Blog
-El blog (`terkor.blogspot.com`) sigue existiendo en Blogger de forma independiente. Esta web incorpora el **contenido literal** de sus 10 entradas como páginas propias (`post-*.html`), pero el blog de Blogger en sí no se ha tocado ni se ha redirigido. Si Terkor quiere dar de baja el Blogger y dejar solo la web nueva, habría que:
-1. Redirigir `terkor.blogspot.com` (dentro de las opciones de Blogger) a las páginas equivalentes de `terkor.es/post-*.html`, o
-2. Mantener ambos activos y enlazados, tal como está ahora (la web nueva no depende del Blogger para funcionar).
+El blog (`terkor.blogspot.com`) sigue existiendo en Blogger de forma independiente. Esta web incorpora el **contenido literal** de sus 10 entradas como páginas propias (`/blog/` + `/post-<slug>/`), pero a petición expresa el enlace "Blog" del menú y del pie vuelve a apuntar directamente a Blogger (como en la web original), en vez de a la versión reconstruida dentro de esta web. Las páginas propias del blog se siguen generando y son accesibles (enlazadas desde la portada y desde el propio `/blog/`), solo que ya no forman parte de la navegación principal. Si más adelante Terkor quiere dar de baja el Blogger y pasar a depender solo de las páginas propias, habría que:
+1. Redirigir `terkor.blogspot.com` (dentro de las opciones de Blogger) a las páginas equivalentes de `terkor.es/post-<slug>/`, y
+2. Volver a enlazar "Blog" del menú/pie a `/blog/` en vez de al externo.
 
 ## Redirecciones 301
 El dominio original solo tenía dos páginas (`index.html`, `platos.html`) más el Blogger externo. Al pasar a las URL nuevas (limpias, sin `.html`):

@@ -123,20 +123,10 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .btn--sm { padding: 0.55rem 1rem; font-size: 0.85rem; }
 
 /* ---------- Marca ---------- */
-.brand { display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+.brand { display: inline-flex; align-items: center; text-decoration: none; }
 .brand-link { text-decoration: none; }
-.brand__ribbon {
-  position: relative; display: inline-block; width: 34px; height: 26px;
-  background: var(--pink);
-  clip-path: polygon(0% 20%, 100% 0%, 92% 50%, 100% 100%, 0% 80%, 8% 50%);
-  flex-shrink: 0;
-}
-.brand__word {
-  font-family: var(--font-display); font-weight: 700; font-size: 1.4rem;
-  color: var(--ink-900); letter-spacing: 0.01em;
-}
-.brand--footer .brand__word { color: #fff; }
-.brand--footer .brand__ribbon { background: #fff; }
+.brand__logo { display: block; height: 38px; width: auto; }
+.brand--footer .brand__logo { height: 44px; }
 
 /* ---------- Cabecera ---------- */
 .site-header {

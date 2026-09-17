@@ -102,8 +102,8 @@ mega-menú, porque el negocio no tiene volumen de páginas que lo justifique.
 - **Josefin Sans** en titulares, la misma tipografía que ya usaba el sitio; **Karla** en
   cuerpo de texto para mejorar la legibilidad en párrafos largos (el original usaba Josefin
   Sans también para el texto corrido).
-- Marca reconstruida en CSS (`clip-path`) en vez de reutilizar el logotipo en PNG: se ve
-  nítida en cualquier tamaño y pantalla.
+- Marca: el logotipo original de Terkor (recortado de la cabecera del sitio antiguo),
+  servido como PNG con transparencia + WebP.
 - Componentes propios (pilares numerados, bento de nutrición, galería con lightbox,
   tarjetas de blog) revisados con el detector de antipatrones de la skill *impeccable*
   (`detect.mjs`), en 0 hallazgos.
