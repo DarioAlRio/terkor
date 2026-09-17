@@ -20,6 +20,12 @@
   --paper-line: #ece3e6;
   --focus: #1467d6;
 
+  /* Superficies intencionadamente oscuras (pie, banda CTA, cita destacada): fijas a
+     propósito, no se invierten con --ink-900 en modo oscuro (si lo hicieran, el fondo se
+     volvería casi blanco con letras blancas encima e ilegibles). */
+  --surface-dark: #201a1d;
+  --pink-on-dark: #ff85ac; /* variante clara de --pink: 7,5:1 sobre --surface-dark, AA de sobra */
+
   --font-display: "Josefin Sans", "Trebuchet MS", sans-serif;
   --font-body: "Karla", system-ui, -apple-system, "Segoe UI", sans-serif;
 
@@ -292,7 +298,7 @@ body { padding-bottom: 64px; }
 .nutri-teaser { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; border-radius: var(--radius-lg); overflow: hidden; position: relative; }
 .nutri-teaser__img { height: 100%; }
 .nutri-teaser__quote {
-  grid-column: 1 / -1; background: var(--ink-900); color: #fff; margin: 0; padding: 1.5rem clamp(1.25rem, 4vw, 2.5rem);
+  grid-column: 1 / -1; background: var(--surface-dark); color: #fff; margin: 0; padding: 1.5rem clamp(1.25rem, 4vw, 2.5rem);
   font-family: var(--font-display); font-size: clamp(1.05rem, 2vw, 1.3rem); display: flex; gap: 0.75rem; align-items: flex-start;
 }
 .nutri-teaser__quote .ic { color: var(--pink); margin-top: 0.15em; flex-shrink: 0; }
@@ -404,29 +410,33 @@ body { padding-bottom: 64px; }
 @media (min-width: 900px) { .contact-grid { grid-template-columns: 0.9fr 1.1fr; } }
 
 /* ---------- Banda CTA ---------- */
-.cta-band { background: var(--ink-900); color: #fff; padding-block: clamp(2.5rem, 6vw, 4rem); }
+.cta-band { background: var(--surface-dark); color: #fff; padding-block: clamp(2.5rem, 6vw, 4rem); }
 .cta-band__inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.75rem; }
 .cta-band__title { color: #fff; font-size: clamp(1.4rem, 2.6vw, 1.9rem); max-width: 32ch; }
 .cta-band__lead { color: rgba(255,255,255,0.75); margin: 0; max-width: 46ch; }
 .cta-band__ctas { display: flex; gap: 0.85rem; flex-wrap: wrap; }
 
 /* ---------- Pie ---------- */
-.site-footer { background: var(--ink-900); color: rgba(255,255,255,0.85); position: relative; }
+/* Texto en el rosa de marca (--pink-on-dark, 7,5:1 sobre el fondo) en vez del blanco
+   habitual: es la única sección donde el rosa se usa como color de texto general, a
+   petición expresa — el resto del sitio sigue usando --pink solo en acentos. */
+.site-footer { background: var(--surface-dark); color: var(--pink-on-dark); position: relative; }
 .site-footer__band { position: relative; height: 120px; overflow: hidden; }
 .site-footer__band img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.9); }
-.site-footer__band-fade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(32,26,29,0.15), var(--ink-900)); }
+.site-footer__band-fade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(32,26,29,0.15), var(--surface-dark)); }
 .footer__grid { display: grid; gap: 2.5rem; grid-template-columns: 1fr; padding-block: clamp(2rem, 5vw, 3rem); }
-.footer__claim { color: rgba(255,255,255,0.65); max-width: 32ch; }
+.footer__claim { color: var(--pink-on-dark); opacity: 0.85; max-width: 32ch; }
 .footer__contact { display: grid; gap: 0.6rem; margin-top: 1rem; }
-.footer__contact li, .footer__contact a { display: flex; align-items: center; gap: 0.55rem; color: rgba(255,255,255,0.85); text-decoration: none; }
+.footer__contact li, .footer__contact a { display: flex; align-items: center; gap: 0.55rem; color: var(--pink-on-dark); text-decoration: none; }
 .footer__contact a:hover { color: #fff; }
-.footer__heading { color: #fff; font-size: 1rem; margin-bottom: 0.85rem; }
+.footer__heading { color: var(--pink-on-dark); font-size: 1rem; margin-bottom: 0.85rem; }
 .footer__list { display: grid; gap: 0.55rem; }
-.footer__list a { color: rgba(255,255,255,0.75); text-decoration: none; }
-.footer__list a:hover { color: #fff; }
-.footer__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding-block: 1.25rem 2rem; border-top: 1px solid rgba(255,255,255,0.12); font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+.footer__list a { color: var(--pink-on-dark); opacity: 0.9; text-decoration: none; }
+.footer__list a:hover { color: #fff; opacity: 1; }
+.footer__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding-block: 1.25rem 2rem; border-top: 1px solid rgba(255,135,172,0.25); font-size: 0.85rem; color: var(--pink-on-dark); opacity: 0.8; }
 .footer__legal { display: flex; gap: 1rem; }
-.footer__legal a { color: rgba(255,255,255,0.6); }
+.footer__legal a { color: var(--pink-on-dark); opacity: 0.8; }
+.footer__legal a:hover { color: #fff; opacity: 1; }
 @media (min-width: 720px) { .footer__grid { grid-template-columns: 1.3fr 1fr 1fr; } }
 
 /* ---------- 404 ---------- */
