@@ -39,10 +39,14 @@ function head({ title, description, canonical, ogImage = "/assets/img/hero-merca
   ${ld}`;
 }
 
+function navAttrs(item) {
+  return item.external ? ` target="_blank" rel="noopener"` : "";
+}
+
 function header(current) {
   const items = NAV.map((item) => {
     const active = item.href === current ? ` aria-current="page"` : "";
-    return `<li><a href="${item.href}" class="nav__link${item.href === current ? " is-active" : ""}"${active}>${item.label}</a></li>`;
+    return `<li><a href="${item.href}" class="nav__link${item.href === current ? " is-active" : ""}"${active}${navAttrs(item)}>${item.label}</a></li>`;
   }).join("\n");
   return `<a class="skip-link" href="#contenido">Saltar al contenido</a>
   <header class="site-header" id="site-header">
@@ -64,7 +68,7 @@ function header(current) {
   <div class="drawer" id="mobile-drawer" aria-hidden="true">
     <nav class="drawer__nav" aria-label="Menú móvil">
       <ul class="drawer__list">
-        ${NAV.map((item) => `<li><a href="${item.href}" class="drawer__link${item.href === current ? " is-active" : ""}">${item.label}</a></li>`).join("\n")}
+        ${NAV.map((item) => `<li><a href="${item.href}" class="drawer__link${item.href === current ? " is-active" : ""}"${navAttrs(item)}>${item.label}</a></li>`).join("\n")}
       </ul>
       <div class="drawer__contact">
         <a href="${SITE.phoneHref}" class="btn btn--primary">${icon("phone", { size: 18 })}<span>Llamar: ${SITE.phone}</span></a>
@@ -88,7 +92,7 @@ function footer() {
     .map(
       (col) => `<div class="footer__col">
       <h3 class="footer__heading">${col.title}</h3>
-      <ul class="footer__list">${col.links.map((l) => `<li><a href="${l.href}">${l.label}</a></li>`).join("")}</ul>
+      <ul class="footer__list">${col.links.map((l) => `<li><a href="${l.href}"${navAttrs(l)}>${l.label}</a></li>`).join("")}</ul>
     </div>`
     )
     .join("\n");

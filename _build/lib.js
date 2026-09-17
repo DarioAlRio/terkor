@@ -30,9 +30,12 @@ function icon(name, { cls = "", size = 24 } = {}) {
   return `<svg class="ic ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${body}</svg>`;
 }
 
-// Marca: cinta rosa + wordmark, en HTML/CSS real (no rasteriza el logo antiguo).
+// Marca: el logotipo original de Terkor (recortado de la cabecera del sitio antiguo).
 function brandmark({ tag = "div", cls = "" } = {}) {
-  return `<${tag} class="brand ${cls}"><span class="brand__ribbon" aria-hidden="true"></span><span class="brand__word">Terkor</span></${tag}>`;
+  return `<${tag} class="brand ${cls}"><picture>
+    <source srcset="/assets/img/logo-terkor.webp" type="image/webp">
+    <img src="/assets/img/logo-terkor.png" alt="Terkor" class="brand__logo" width="144" height="38">
+  </picture></${tag}>`;
 }
 
 function eyebrow(text) {

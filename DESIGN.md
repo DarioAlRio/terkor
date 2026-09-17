@@ -22,7 +22,7 @@
 
 ## Componentes
 - **Botones** (`.btn`): pastilla completa (`border-radius:999px`), variante primaria rosa sólida, variante "ghost" con borde y fondo translúcido sobre imágenes oscuras (hero, banda CTA). Alto mínimo 44px (objetivo táctil).
-- **Marca** (`.brand`): la cinta del logotipo original se reconstruye con un `clip-path: polygon()` en CSS + texto real en Josefin Sans, en vez de reutilizar el PNG recortado del sitio antiguo — así escala nítida a cualquier tamaño y en pantallas retina.
+- **Marca** (`.brand`): el logotipo original de Terkor (recortado de `cabecera.png`, la cabecera del sitio antiguo, que incluía además una línea de texto "SERVICIOS DE COCINA Y COMEDOR" que no se usa aquí), servido como PNG con transparencia + WebP. A petición expresa se usa la imagen real en vez de la reconstrucción en CSS que se manejó en un primer momento.
 - **Pilares numerados** (`.pillar`): traduce los tres bloques "01 Eficacia / 02 Calidad / 03 Seguridad" del original en tarjetas con el número grande en rosa claro, sin depender de icono.
 - **Mini-servicios / tarjetas de servicio**: icono circular rosa + texto, para los 4 servicios reales del `SERVICIOS` original.
 - **Bento de nutrición**: las dos fotos (`foto_nutricion.jpg`) se separan por recorte en `aceite` y `pan` para poder maquetarlas como bloque bento con una cita destacada, en vez de una única imagen compuesta como en el original.

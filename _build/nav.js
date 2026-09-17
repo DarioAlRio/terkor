@@ -27,7 +27,7 @@ const NAV = [
   { href: "/servicios/", label: "Servicios" },
   { href: "/nutricion-innovacion/", label: "Nutrición e innovación" },
   { href: "/platos/", label: "Platos" },
-  { href: "/blog/", label: "Blog" },
+  { href: "https://terkor.blogspot.com", label: "Blog", external: true },
   { href: "/contacto/", label: "Contacto" },
 ];
 
@@ -45,7 +45,7 @@ const FOOT = {
       title: "Contenido",
       links: [
         { href: "/platos/", label: "Platos" },
-        { href: "/blog/", label: "Blog de nutrición" },
+        { href: "https://terkor.blogspot.com", label: "Blog de nutrición", external: true },
         { href: "/contacto/", label: "Contacto" },
       ],
     },
