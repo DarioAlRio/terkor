@@ -56,7 +56,7 @@ function render() {
     title: "Cocina propia y nutrición seria, con 35 años de oficio",
     lead: SITE.description,
     ctas: [
-      { href: SITE.phoneHref, label: `Llamar · ${SITE.phone}`, icon: "phone" },
+      { href: "/contacto/", label: "Contactar", icon: "mail" },
       { href: "/platos/", label: "Ver nuestros platos", variant: "ghost" },
     ],
   })}
@@ -130,10 +130,7 @@ function render() {
   ${ctaBand({
     title: "¿Gestionas un centro escolar, una residencia o una empresa?",
     lead: "Cuéntanos tus necesidades de comedor y te preparamos una propuesta.",
-    ctas: [
-      { href: SITE.phoneHref, label: `Llamar · ${SITE.phone}`, icon: "phone" },
-      { href: "/contacto/", label: "Ir a contacto", variant: "ghost" },
-    ],
+    ctas: [{ href: "/contacto/", label: "Ir a contacto", icon: "mail" }],
   })}
   `;
 }

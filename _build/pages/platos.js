@@ -38,10 +38,7 @@ function render() {
   ${ctaBand({
     title: "¿Quiere ver el menú completo del mes?",
     lead: "Se lo enviamos junto con la propuesta nutricional de su centro.",
-    ctas: [
-      { href: SITE.phoneHref, label: `Llamar · ${SITE.phone}`, icon: "phone" },
-      { href: "/contacto/", label: "Pedir información", variant: "ghost" },
-    ],
+    ctas: [{ href: "/contacto/", label: "Pedir información", icon: "mail" }],
   })}
 
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galería de platos" hidden>

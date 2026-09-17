@@ -53,7 +53,7 @@ function render() {
     title: "Hablemos de su comedor",
     lead: "Cuéntenos las particularidades de su centro y adaptamos el servicio a sus necesidades.",
     ctas: [
-      { href: SITE.phoneHref, label: `Llamar · ${SITE.phone}`, icon: "phone" },
+      { href: "/contacto/", label: "Contactar", icon: "mail" },
       { href: "/servicios/", label: "Ver servicios", variant: "ghost" },
     ],
   })}

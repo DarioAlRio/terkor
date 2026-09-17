@@ -142,7 +142,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .nav__link { color: var(--ink-800); text-decoration: none; font-weight: 500; font-size: 0.96rem; padding: 0.4rem 0; border-bottom: 2px solid transparent; }
 .nav__link:hover, .nav__link.is-active { color: var(--pink-ink); border-color: var(--pink); }
 .site-header__actions { display: flex; align-items: center; gap: 0.75rem; }
-.nav__phone { display: none; }
+.nav__contact { display: none; }
 
 .menu-toggle {
   display: inline-flex; align-items: center; justify-content: center;
@@ -174,14 +174,14 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 @media (min-width: 960px) {
   .nav--desktop { display: block; }
-  .nav__phone { display: inline-flex; }
+  .nav__contact { display: inline-flex; }
   .menu-toggle { display: none; }
 }
 
 /* Barra de acciones rápidas en móvil (fija abajo) */
 .mobile-cta-bar {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 55;
-  display: grid; grid-template-columns: repeat(3, 1fr); background: var(--paper);
+  display: grid; grid-template-columns: repeat(2, 1fr); background: var(--paper);
   border-top: 1px solid var(--paper-line); box-shadow: 0 -8px 24px -16px rgba(0,0,0,0.3);
   padding-bottom: env(safe-area-inset-bottom);
 }

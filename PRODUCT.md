@@ -17,12 +17,12 @@ Comedores colectivos con enfoque en **eficacia, calidad y seguridad alimentaria*
 ## Operating Context
 - Sin backend ni CMS: los cambios de contenido se hacen editando `_build/data.js` y volviendo a ejecutar `node build.js`.
 - Sin analítica ni cookies de terceros instaladas (el original tampoco las tenía).
-- El único canal de conversión real disponible es el contacto directo (teléfono, WhatsApp, correo): no hay pasarela de pago ni panel de cliente.
+- El único canal de conversión real disponible es el contacto directo por correo: no hay pasarela de pago ni panel de cliente.
 
 ## Capabilities and Constraints
 - **No hay CIF ni domicilio social publicados** en ninguna página del dominio original: no se han inventado, están marcados como pendientes en `PENDIENTE.md` y en `aviso-legal.html`.
-- **No hay formulario con backend real**: el "formulario de contacto" compone un `mailto:` o un enlace de WhatsApp en el navegador del visitante; no hay servidor propio que reciba envíos.
-- El teléfono (650 971 404) no aparecía en `terkor.es`: se recuperó de las fichas de las entradas del blog (`terkor.blogspot.com`), donde aparece repetido y firmado por la propia empresa.
+- **No hay formulario con backend real**: el "formulario de contacto" compone un `mailto:` en el navegador del visitante; no hay servidor propio que reciba envíos.
+- El teléfono (650 971 404, recuperado de las fichas de las entradas del blog) se retiró de la web a petición expresa por ser un número personal del titular, no una línea comercial. Si Terkor da de alta un teléfono de empresa, se puede añadir de nuevo.
 
 ## Brand Commitments
 - Rosa de marca `#dc2b6e`, muestreado del logotipo original (cinta rosa con "Terkor") y confirmado por las clases `.rosa` / `.tit` del CSS antiguo.
@@ -35,7 +35,7 @@ Todo el rastreo original vive en `_rastreo/`: HTML crudo de `index.html` y `plat
 ## Product Principles
 1. Nada se inventa: si un dato no estaba en el dominio ni en su blog, no está en la web (va a `PENDIENTE.md`).
 2. La marca se respeta: mismos colores, misma tipografía de titulares, mismo nombre y mismo tono de los textos.
-3. El sitio funciona sin JavaScript: la navegación, el contenido y los enlaces de contacto (`tel:`, `mailto:`) son accesibles igual; JS solo añade el menú móvil, la galería y la composición del correo.
+3. El sitio funciona sin JavaScript: la navegación, el contenido y los enlaces de contacto son accesibles igual (el `mailto:` del correo ofuscado necesita JS para resolverse; el resto no); JS solo añade el menú móvil, la galería y la composición del correo.
 4. Cada imagen es del propio dominio (fotos de servicio, platos reales, imágenes del blog) — no hay banco de imágenes.
 
 ## Accessibility & Inclusion

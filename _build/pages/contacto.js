@@ -8,29 +8,17 @@ function render() {
   ${pageHeader({
     eyebrowText: "Contacto",
     title: "Hablemos de su comedor",
-    lead: "Puede llamarnos, escribirnos por WhatsApp o preparar un correo con el formulario. Le respondemos a la mayor brevedad.",
+    lead: "Prepare un correo con el formulario o escríbanos directamente. Le respondemos a la mayor brevedad.",
   })}
 
   <section class="section">
     <div class="container contact-grid">
       <ul class="contact-cards">
         <li class="contact-card">
-          <span class="contact-card__icon">${icon("phone", { size: 24 })}</span>
-          <h2 class="contact-card__title">Teléfono</h2>
-          <p class="contact-card__text">La forma más rápida de resolver dudas sobre el servicio.</p>
-          <a class="btn btn--primary" href="${SITE.phoneHref}">${icon("phone", { size: 16 })}<span>${SITE.phone}</span></a>
-        </li>
-        <li class="contact-card">
-          <span class="contact-card__icon">${icon("whatsapp", { size: 24 })}</span>
-          <h2 class="contact-card__title">WhatsApp</h2>
-          <p class="contact-card__text">Escríbanos y le contestamos en cuanto podamos.</p>
-          <a class="btn btn--ghost" href="${SITE.whatsappHref}" target="_blank" rel="noopener">${icon("whatsapp", { size: 16 })}<span>Abrir WhatsApp</span></a>
-        </li>
-        <li class="contact-card">
           <span class="contact-card__icon">${icon("mail", { size: 24 })}</span>
           <h2 class="contact-card__title">Correo</h2>
           <p class="contact-card__text">Para propuestas, presupuestos o dudas por escrito.</p>
-          ${correoOfuscado(SITE.emailUser, SITE.emailDomain, { cls: "btn btn--ghost", label: "Ver dirección de correo" })}
+          ${correoOfuscado(SITE.emailUser, SITE.emailDomain, { cls: "btn btn--primary", label: "Ver dirección de correo" })}
         </li>
       </ul>
 
@@ -59,7 +47,6 @@ function render() {
 
         <div class="contact-form__actions">
           <button type="submit" class="btn btn--primary">${icon("mail", { size: 16 })}<span>Redactar correo</span></button>
-          <button type="button" class="btn btn--ghost" data-whatsapp-fill>${icon("whatsapp", { size: 16 })}<span>Enviar por WhatsApp</span></button>
         </div>
         <p class="contact-form__status" role="status" aria-live="polite" data-form-status hidden></p>
       </form>
@@ -82,7 +69,7 @@ module.exports = {
   meta: {
     current: "/contacto/",
     title: "Contacto — Terkor",
-    description: `Contacte con Terkor: ${SITE.phone}, WhatsApp o correo electrónico. Servicios de cocina y comedor en ${SITE.locality}.`,
+    description: `Contacte con Terkor por correo electrónico o formulario. Servicios de cocina y comedor en ${SITE.locality}.`,
     canonical: "/contacto/",
   },
 };

@@ -42,10 +42,7 @@ function render() {
   ${ctaBand({
     title: "¿Necesita alguno de estos servicios?",
     lead: "Le contamos cómo los integramos con el servicio de comedor de su centro.",
-    ctas: [
-      { href: SITE.phoneHref, label: `Llamar · ${SITE.phone}`, icon: "phone" },
-      { href: "/contacto/", label: "Escribir", variant: "ghost" },
-    ],
+    ctas: [{ href: "/contacto/", label: "Escribir", icon: "mail" }],
   })}
   `;
 }

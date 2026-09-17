@@ -56,7 +56,7 @@ function header(current) {
         <ul class="nav__list">${items}</ul>
       </nav>
       <div class="site-header__actions">
-        <a href="${SITE.phoneHref}" class="btn btn--ghost btn--sm nav__phone">${icon("phone", { size: 18 })}<span>${SITE.phone}</span></a>
+        <a href="#" class="btn btn--ghost btn--sm nav__contact" data-correo="${SITE.emailUser}|${SITE.emailDomain}">${icon("mail", { size: 18 })}<span>Escribir</span></a>
         <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="mobile-drawer">
           ${icon("menu", { cls: "menu-toggle__open" })}
           ${icon("close", { cls: "menu-toggle__close" })}
@@ -71,8 +71,8 @@ function header(current) {
         ${NAV.map((item) => `<li><a href="${item.href}" class="drawer__link${item.href === current ? " is-active" : ""}"${navAttrs(item)}>${item.label}</a></li>`).join("\n")}
       </ul>
       <div class="drawer__contact">
-        <a href="${SITE.phoneHref}" class="btn btn--primary">${icon("phone", { size: 18 })}<span>Llamar: ${SITE.phone}</span></a>
-        <a href="${SITE.whatsappHref}" class="btn btn--ghost">${icon("whatsapp", { size: 18 })}<span>WhatsApp</span></a>
+        <a href="#" class="btn btn--primary" data-correo="${SITE.emailUser}|${SITE.emailDomain}">${icon("mail", { size: 18 })}<span>Escribir un correo</span></a>
+        <a href="/contacto/" class="btn btn--ghost">${icon("arrowRight", { size: 18 })}<span>Ir a contacto</span></a>
       </div>
     </nav>
   </div>
@@ -81,9 +81,8 @@ function header(current) {
 
 function mobileBar() {
   return `<div class="mobile-cta-bar" aria-label="Contacto rápido">
-    <a href="${SITE.phoneHref}" class="mobile-cta-bar__item">${icon("phone", { size: 20 })}<span>Llamar</span></a>
-    <a href="${SITE.whatsappHref}" class="mobile-cta-bar__item">${icon("whatsapp", { size: 20 })}<span>WhatsApp</span></a>
-    <a href="/contacto/" class="mobile-cta-bar__item mobile-cta-bar__item--accent">${icon("mail", { size: 20 })}<span>Contacto</span></a>
+    <a href="#" class="mobile-cta-bar__item" data-correo="${SITE.emailUser}|${SITE.emailDomain}">${icon("mail", { size: 20 })}<span>Escribir</span></a>
+    <a href="/contacto/" class="mobile-cta-bar__item mobile-cta-bar__item--accent">${icon("arrowRight", { size: 20 })}<span>Contacto</span></a>
   </div>`;
 }
 
@@ -109,7 +108,6 @@ function footer() {
         ${brandmark({ cls: "brand--footer" })}
         <p class="footer__claim">${SITE.claim} en ${SITE.locality}.</p>
         <ul class="footer__contact">
-          <li><a href="${SITE.phoneHref}">${icon("phone", { size: 16 })}<span>${SITE.phone}</span></a></li>
           <li>${correoOfuscado(SITE.emailUser, SITE.emailDomain, { label: "Escribir un correo" })}</li>
           <li>${icon("pin", { size: 16 })}<span>${SITE.locality}, ${SITE.region}</span></li>
         </ul>

@@ -24,14 +24,13 @@ const blogModule = require("./_build/pages/blog.js");
 const postPages = blogModule.allPosts();
 
 const jsonLdByPage = {
-  "index.html": [
+  "/": [
     {
       "@context": "https://schema.org",
       "@type": "FoodEstablishment",
       name: "Terkor",
       description: SITE.description,
       email: SITE.email,
-      telephone: SITE.phone,
       url: SITE.domain,
       address: {
         "@type": "PostalAddress",

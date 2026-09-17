@@ -75,7 +75,7 @@ hace falta ninguna regla de reescritura en el servidor. Solo `index.html` (porta
 | `/nutricion-innovacion/` | Cómo se diseñan los menús (BIOTAB) e innovación |
 | `/platos/` | Galería de 19 platos reales con lightbox accesible |
 | `/blog/` + `/post-<slug>/` (10) | Índice y fichas de las 10 entradas reales del blog |
-| `/contacto/` | Teléfono, WhatsApp, correo y formulario que compone `mailto:`/WhatsApp |
+| `/contacto/` | Correo y formulario que compone un `mailto:` |
 | `/aviso-legal/` | Aviso legal honesto: qué datos de identificación faltan por confirmar |
 | `404.html` | Página de error (archivo suelto en la raíz, lo exigen así los hostings) |
 
@@ -118,9 +118,11 @@ mega-menú, porque el negocio no tiene volumen de páginas que lo justifique.
   JavaScript desactivado. La única mejora que se pierde sin JS es el menú móvil desplegable
   (los enlaces siguen ahí, solo que sin animación) y la galería, que se ve igual como lista
   de imágenes con su pie de foto.
-- **Formulario de contacto sin backend real**: compone un `mailto:` o un enlace de WhatsApp
-  con los datos escritos y lo dice explícitamente. El sitio original no tenía formulario, solo
-  un enlace `mailto:` fijo.
+- **Formulario de contacto sin backend real**: compone un `mailto:` con los datos escritos y
+  lo dice explícitamente. El sitio original no tenía formulario, solo un enlace `mailto:` fijo.
+- **Sin teléfono ni WhatsApp publicados**: el número que aparecía en las firmas del blog es
+  personal del titular, no una línea de empresa, así que se retiró de toda la web a petición
+  expresa. El único canal de contacto es el correo (formulario o directo).
 - **Correo ofuscado**: se compone por JavaScript desde `data-correo="usuario|dominio"` para
   dificultar el rastreo automático, sin romper el enlace `mailto:` real para personas.
 
